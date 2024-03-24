@@ -1,31 +1,44 @@
 "use client";
-import React from 'react';
-import {useRef} from "react";
+import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-import emailjs from "emailjs-com";
 
+const EmailSection = () => {
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-
-function EmailSection() {
-  const form = useRef()
-  const sendEmail = (e) => {
-
+  const handleSubmit = async (e) => {
     e.preventDefault();
-      
-      emailjs
-        .sendForm('service_l2npeqd', 'template_zfjwlvr', form.current, 'uDhmLFUZZEMr7BBG8')
-        .then((result) => {
-          console.log(result.text);
-          console.log("message sent")
-          alert("Message sent")
-          e.target.reset();
-        }, (error) => {
-          console.log(error.text);
-        });
+    const data = {
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+    const JSONdata = JSON.stringify(data);
+    const endpoint = "/api/send";
+
+    // Form the request for sending data to the server.
+    const options = {
+      // The method is POST because we are sending data.
+      method: "POST",
+      // Tell the server we're sending JSON.
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // Body of the request is the JSON data we created above.
+      body: JSONdata,
+    };
+
+    const response = await fetch(endpoint, options);
+    const resData = await response.json();
+
+    if (response.status === 200) {
+      console.log("Message sent.");
+      setEmailSubmitted(true);
+    }
   };
+
   return (
     <section
       id="contact"
@@ -52,9 +65,12 @@ function EmailSection() {
         </div>
       </div>
       <div>
-        
-         
-          <form ref={form} onSubmit={(sendEmail)}>
+        {emailSubmitted ? (
+          <p className="text-green-500 text-sm mt-2">
+            Email sent successfully!
+          </p>
+        ) : (
+          <form className="flex flex-col" onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -63,7 +79,7 @@ function EmailSection() {
                 Your email
               </label>
               <input
-                name="from_name"
+                name="email"
                 type="email"
                 id="email"
                 required
@@ -108,7 +124,7 @@ function EmailSection() {
               Send Message
             </button>
           </form>
-        
+        )}
       </div>
     </section>
   );
