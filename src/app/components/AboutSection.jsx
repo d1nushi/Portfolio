@@ -9,16 +9,40 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
-        <li><img src="images/figma.png" alt="figma" /></li>
-        <li>Java</li>
-        <li>HTML/CSS</li>
-        <li>JavaScript</li>
-        <li>React.js</li>
-        <li>MySQL</li>
-        <li>Figma</li>
-        <li>MS Office Package</li>  
-      </ul>
+      <div className="flex">
+        <div className="mr-2">
+          <img src="images/react.png" alt="React" />
+          <p className="mt-2">React</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/figma.png" alt="Figma" />
+          <p className="mt-2">Figma</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/html.png" alt="HTML" />
+          <p className="mt-2">HTML</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/css.png" alt="CSS" />
+          <p className="mt-2">CSS</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/js.png" alt="Javascript" />
+          <p className="mt-2">Javascript</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/java.png" alt="Java" />
+          <p className="mt-2">Java</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/python.png" alt="Python" />
+          <p className="mt-2">Python</p>
+        </div>
+        <div className="mr-2">
+          <img src="images/mysql.png" alt="MySQL" />
+          <p className="mt-2">MySQL</p>
+        </div>
+       </div>
     ),
   },
   {
@@ -77,12 +101,12 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" width={500} height={500} />
+        <Image src="/images/more.png" width={500} height={500} />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
-            I am a highly motivated second-year undergraduate pursuing a degree in
-            Computer Science who is keen to learn new skills and technologies.
+          <p className="text-base lg:text-lg text-justify">
+            I am a dedicated second-year undergraduate pursuing a degree in
+            Computer Science at Informatics Institute of Technology, who is keen to learn new skills and technologies.
             I am excited to work with others to create amazing applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
