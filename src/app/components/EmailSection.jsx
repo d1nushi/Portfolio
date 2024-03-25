@@ -3,9 +3,10 @@ import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 
-const EmailSection = () => {
-  
 
+        
+          
+const EmailSection = () => {
   return (
     <section
       id="contact"
@@ -23,21 +24,17 @@ const EmailSection = () => {
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/d1nushi">
-            <Image src={GithubIcon} alt="Github Icon" />
-          </Link>
-          <Link href="https://www.linkedin.com/in/dinushi-wanniarachchi-98857a244/">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
-          </Link>
+          <a href="https://github.com/d1nushi">
+            <img src="/github-icon.svg" alt="Github Icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/dinushi-wanniarachchi-98857a244/">
+            <img src="/linkedin-icon.svg" alt="Linkedin Icon" />
+          </a>
         </div>
       </div>
       
-      </section>)
-        
-          
-        
-      
-  
+    </section>
+  );
+};
 
-}
 export default EmailSection;
