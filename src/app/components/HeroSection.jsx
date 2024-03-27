@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 
 const HeroSection = () => {
@@ -42,11 +44,15 @@ const HeroSection = () => {
                 Download CV
               </span>
             </button>
-
-
-        
-
-
+            
+            <div className="socials flex flex-row gap-2">
+              <Link href="https://github.com/d1nushi">
+                <Image src={GithubIcon} alt="Github Icon" />
+              </Link>
+              <Link href="https://www.linkedin.com/in/dinushi-wanniarachchi-98857a244/">
+                <Image src={LinkedinIcon} alt="Linkedin Icon" />
+              </Link>
+            </div>
           </div>
         </motion.div>
         <motion.div
